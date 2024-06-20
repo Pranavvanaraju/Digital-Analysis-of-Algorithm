@@ -1,0 +1,19 @@
+def wordbreak(s,dictionary):
+    n=len(s)
+    dp=[False]*(n+1)
+    dp[0]=True
+    l=[]
+    for i in range(n+1):
+        for j in range(i):
+            if dp[j] and s[j:i] in dictionary:
+                l.append(s[j:i])
+                dp[i]=True
+                break
+        print(dp[i])
+    print(l)
+    return
+
+s='GODGIFTMONEY'
+dictionary=['GOD','GIFT','MONEY','ONE','IF']
+
+wordbreak(s,dictionary)
